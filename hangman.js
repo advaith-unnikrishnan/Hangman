@@ -1,14 +1,43 @@
-var img=document.getElementById("hangman-img")
+let img=document.getElementById("hangman-img")
+let hint=document.getElementById("clue")
+let chances=document.getElementById("moves")
+let answer=document.getElementById("answer")
 let img_name=0
-
-const updateImg=()=>{
-    
-    if(img_name<=6)
-    {
-        img.src="images/hangman"+img_name+".png"
-        img_name++
+let moves=6
+let questions={
+    q1:{
+        hint:"Steven Spielberg , Leanardo DiCaprio ,Kate Winslet",
+        answer:"Titanic",
+    },
+    q2:{
+        hint:"Peter Jackson and Ring",
+        answer:"Lord of the Rings The return of the King",
+    },
+    q3:{
+        hint:"Steven Spielberg , Tom Hanks, Leonardo DiCaprio",
+        answer:"Catch me if you can",
     }
-    else
-        alert("Game Over")
 }
 
+const updateImg=()=>{
+    ++img_name
+    if(moves>0)
+    {
+        img.src="images/hangman"+img_name+".png"
+        moves--
+    }
+    else if(moves==0)
+        alert("Game Over!!")
+}
+
+const setQuestion=()=>{
+    hint.innerHTML="Hint: "+questions.q1.hint
+    chances.innerHTML="No: of moves left - "+moves
+    let l=questions.q1.answer.length
+    let ans=""
+    for(let i=0;i<l;i++)
+        ans+="_ "
+    answer.innerHTML=ans
+    
+
+}
