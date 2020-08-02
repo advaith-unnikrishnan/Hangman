@@ -9,7 +9,7 @@ body{
     margin: auto;    
 }
 h1{
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: monospace;
     font-weight: 400;
 }
@@ -22,9 +22,16 @@ h3{
 .title{
     display: grid;
     text-align: center;
-    align-items: center;
+    line-height: 1.5;
+}
+.hangman{
+    display: flex;
+    justify-content: space-evenly;
 }
 
+p{
+    font-size: 1.5rem;
+}
 button{
     height: 2rem;
     width: 3rem;
