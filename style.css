@@ -1,10 +1,13 @@
 /* GLobal variables*/
-*,::before,::after{
-    padding: 0;
-    margin: 0;
-    
+/*
+#f2cddb
+#ab93cb
+*/
+body{
+    background-color:#2a798d ;
+    max-width: 1000px;
+    margin: auto;    
 }
-
 h1{
     font-size: 2rem;
     font-family: monospace;
@@ -17,7 +20,23 @@ h3{
 }
 
 .title{
-    display: flex;
+    display: grid;
     text-align: center;
     align-items: center;
+}
+
+button{
+    height: 2rem;
+    width: 3rem;
+    font-size: 1.25rem;
+    border: 0;
+    border-radius: 0.85rem;
+    background-color: #f2cddb;
+    color: #000000;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+
+button:focus{
+    outline: none;
 }
