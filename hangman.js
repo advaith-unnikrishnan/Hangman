@@ -4,6 +4,7 @@ let chances=document.getElementById("moves")
 let answer=document.getElementById("answer")
 let img_name=0
 let moves=6
+let correctWord=""
 let questions={
     q1:{
         hint:"Steven Spielberg , Leanardo DiCaprio ,Kate Winslet",
@@ -37,7 +38,19 @@ const setQuestion=()=>{
     let ans=""
     for(let i=0;i<l;i++)
         ans+="_ "
-    answer.innerHTML=ans
-    
+    answer.innerHTML=ans  
+}
 
+const displayWord=(e)=>{
+    let ans=[...questions.q1.answer]
+    if(e in ans)
+        {
+            correctWord+=e
+            answer.innerHTML=correctWord
+        }
+    else{
+        moves--
+        chances.innerHTML="No: of moves left - "+moves
+        updateImg()
+    }
 }
