@@ -56,7 +56,7 @@ const displayWord=(e)=>{
 }
 
 function generateButtons() {
-    let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
+    let buttonsHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter =>
       `
         <button
           class="btn btn-lg btn-primary m-2"
@@ -69,4 +69,6 @@ function generateButtons() {
   
     document.getElementById('keyboard').innerHTML = buttonsHTML;
   }
+
   
+  generateButtons();
