@@ -1,4 +1,3 @@
-import swal from 'sweetalert'
 let characters=[
   "IRONMAN",
   "CAPTAIN AMERICA",
@@ -8,12 +7,11 @@ let characters=[
   "BLACK PANTHER",
   "HULK",
   "THOR",
-  "NICK FURY",
   "VISION",
   "WANDA",
   "THANOS",
   "DAREDEVIL",
-  "STAN LEE"
+  
 ]
 let answer=''
 let guessed=[]
@@ -41,16 +39,17 @@ function generateButtons() {
 }
 
 /*function to handle the guess made by user*/
-function handleGuess(chosen) {
-  guessed.indexOf(chosen)===-1?guessed.push(chosen):null
-  document.getElementById(chosen).setAttribute('disable',true)
-  if (answer.indexOf(chosen)>=0)
+function handleGuess(chosenLetter) {
+  guessed.indexOf(chosenLetter)===-1?guessed.push(chosenLetter):null
+  document.getElementById(chosenLetter).setAttribute('disabled',true)
+  if (answer.indexOf(chosenLetter)>=0)
   {
     guessedWord()
     checkGameStatus()
   } 
-  else if(answer.indexOf(chosen)===-1)
+  else if(answer.indexOf(chosenLetter)===-1)
   {
+    mistakes++
     updateMistakes()
     checkGameStatus()
     updateImg()
@@ -60,10 +59,10 @@ function handleGuess(chosen) {
 /* Function to check whether game won or lost*/
 function checkGameStatus() {
   if(wordStatus === answer){
-    swal("You won!!")
+    alert("Congratulations \n You Won!")
   }
   else if(mistakes===moves){
-    swal("You lost!","The answer was "+answer)
+    alert("You lost!\n Better luck next time.")
   }
 }
 
@@ -71,5 +70,28 @@ function checkGameStatus() {
 function updateImg() {
   document.getElementById('hangman-img').src="./images/hangman"+mistakes+".png"  
 }
-randomWord();
-generateButtons();
+
+function guessedWord() {
+  wordStatus=answer.split('').map(letter=>(guessed.indexOf(letter)>=0?letter:" _ ")).join('')
+  document.getElementById('guess').innerHTML=wordStatus
+  console.log(wordStatus)
+}
+
+function updateMistakes() {
+  document.getElementById('mistakes').innerHTML = mistakes;
+}
+
+function reset() {
+  mistakes = 0;
+  guessed = [];
+  document.getElementById('hangman-img').src = './images/hangman0.png';
+
+  randomWord()
+  guessedWord()
+  updateMistakes()
+  generateButtons()
+}
+
+randomWord()
+generateButtons()
+guessedWord()
