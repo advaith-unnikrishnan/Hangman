@@ -1,24 +1,20 @@
-let img=document.getElementById("hangman-img")
-let hint=document.getElementById("clue")
-let chances=document.getElementById("moves")
-let answer=document.getElementById("answer")
-let img_name=0
-let moves=6
-let correctWord=""
-let questions={
-    q1:{
-        hint:"Steven Spielberg , Leanardo DiCaprio ,Kate Winslet",
-        answer:"Titanic",
-    },
-    q2:{
-        hint:"Peter Jackson and Ring",
-        answer:"Lord of the Rings The return of the King",
-    },
-    q3:{
-        hint:"Steven Spielberg , Tom Hanks, Leonardo DiCaprio",
-        answer:"Catch me if you can",
-    }
-}
+let characters=[
+  "IRONMAN",
+  "CAPTAIN AMERICA",
+  "CAPTAIN MARVEL",
+  "SPIDERMAN",
+  "BLACK WIDOW",
+  "BLACK PANTHER",
+  "HULK",
+  "THOR",
+  "NICK FURY",
+  "VISION",
+  "WANDA",
+  "THANOS",
+  "DAREDEVIL",
+  "STAN LEE"
+]
+
 
 const updateImg=()=>{
     ++img_name
@@ -31,35 +27,16 @@ const updateImg=()=>{
         alert("Game Over!!")
 }
 
-const setQuestion=()=>{
-    hint.innerHTML="Hint: "+questions.q1.hint
-    chances.innerHTML="No: of moves left - "+moves
-    let l=questions.q1.answer.length
-    let ans=""
-    for(let i=0;i<l;i++)
-        ans+="_ "
-    answer.innerHTML=ans  
+/*function to pick a random word from the list*/
+function randomWord() {
+  answer = characters[Math.floor(Math.random() * characters.length)];
 }
 
-const displayWord=(e)=>{
-    let ans=[...questions.q1.answer]
-    if(e in ans)
-        {
-            correctWord+=e
-            answer.innerHTML=correctWord
-        }
-    else{
-        moves--
-        chances.innerHTML="No: of moves left - "+moves
-        updateImg()
-    }
-}
 
 function generateButtons() {
     let buttonsHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter =>
       `
         <button
-          class="btn btn-lg btn-primary m-2"
           id='` + letter + `'
           onClick="handleGuess('` + letter + `')"
         >
@@ -68,7 +45,7 @@ function generateButtons() {
       `).join('');
   
     document.getElementById('keyboard').innerHTML = buttonsHTML;
-  }
+}
 
-  
-  generateButtons();
+
+generateButtons();
