@@ -13,16 +13,18 @@
 
     <div class="hangman">
         <img src="images/hangman0.png" alt="hang" id="hangman-img" onclick="updateImg()">
-        <h3 id="clue">Hint: Leonardo Di Caprio</h3>
-        <h3 id="moves">No: of moves left - 6</h3>
+        <h3 id="hint">Your Hint goes here</h3>
+        <h3 id="mistakes">Wrong guesses: <span id="mistakes">0</span> out of 6</h3>
     </div>
 
     <main>
         <div class="answers">
             <p id="answer"> You Guess goes here</p>
+            <div id="keyboard"></div>
         </div>
-        <div id="keyboard"></div>
-        <button class="btn btn-info" onClick="reset()" style="align-items: center;">Reset</button>
+        
+        <br>
+        <button onClick="reset()">Reset</button>
     </main>
     
 
