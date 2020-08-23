@@ -1,17 +1,17 @@
 let characters=[
-  "IRONMAN",
-  "CAPTAIN AMERICA",
-  "CAPTAIN MARVEL",
-  "SPIDERMAN",
-  "BLACK WIDOW",
-  "BLACK PANTHER",
-  "HULK",
-  "THOR",
-  "VISION",
-  "WANDA",
-  "THANOS",
-  "DAREDEVIL",
-  
+  "PROFESSOR",
+  "BERLIN",
+  "NAIROBI",
+  "TOKYO",
+  "RIO",
+  "HELSINKI",
+  "LISBON",
+  "MOSCOW",
+  "DENVER",
+  "STOCKHOLM",
+]
+let moneyheist=[
+
 ]
 let answer=''
 let guessed=[]
