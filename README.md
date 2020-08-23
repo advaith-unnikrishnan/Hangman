@@ -1,5 +1,6 @@
 # Hangman
 
-_ This Hangman game is created using HTML,CSS,Javascript._
-
-It is a fun project
+ At first I created this game using Python and Pygames library but it didn't turn out to be good.
+ Then I thought it could be created using Javascript.
+ 
+ 
